@@ -35,7 +35,7 @@ class ActivitySerializer(BaseSerializer):
         if extra_context:
             pickle_string = pickle.dumps(activity.extra_context)
             if six.PY3:
-                pickle_string = pickle_string.decode('latin1')
+                pickle_string = pickle_string.decode('utf-8')
         parts += [activity_time, pickle_string]
         serialized_activity = ','.join(map(str, parts))
         return serialized_activity
@@ -53,7 +53,7 @@ class ActivitySerializer(BaseSerializer):
         extra_context = {}
         if pickle_string:
             if six.PY3:
-                pickle_string = pickle_string.encode('latin1')
+                pickle_string = pickle_string.encode('utf-8')
             extra_context = pickle.loads(pickle_string)
         activity = self.activity_class(actor_id, verb, object_id, target_id,
                                        time=activity_datetime, extra_context=extra_context)
