@@ -3,7 +3,7 @@
 from io import open
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
-from stream_framework import __version__, __maintainer__, __email__
+from stream_framework import __version__, __maintainer__, __email__, name
 import sys
 
 long_description = open('README.md', encoding="utf-8").read()
@@ -27,6 +27,7 @@ extras_require = {
     'cassandra': ['cassandra-driver>=2.7.2'],
 }
 
+
 class PyTest(TestCommand):
 
     def finalize_options(self):
@@ -40,14 +41,16 @@ class PyTest(TestCommand):
         errno = pytest.main(self.test_args)
         sys.exit(errno)
 
+
 setup(
-    name='stream_framework',
+    name=name,
     version=__version__,
     author=__maintainer__,
     author_email=__email__,
     url='https://github.com/tschellenbach/Stream-Framework/',
     description='Stream Framework allows you to build complex feed and caching structures using Redis.',
     long_description=long_description,
+    long_description_content_type='text/markdown',
     packages=find_packages(),
     zip_safe=False,
     install_requires=install_requires,
