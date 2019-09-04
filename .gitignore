@@ -1,13 +1,16 @@
+/.cache
+/.idea/
+/build
+/docs/_build
+/dist
 *.log
 *.pot
 *.pyc
 *.egg-info
-/.cache
 local_settings.py
 
 .vagrant
 .DS_Store
-
 pinterest_example/static/CACHE/
 .sass-cache
 .coverage
