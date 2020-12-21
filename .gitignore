@@ -3,6 +3,7 @@
 /build
 /docs/_build
 /dist
+/venv/
 *.log
 *.pot
 *.pyc
